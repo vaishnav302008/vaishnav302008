@@ -3,13 +3,13 @@ const fs = require('fs');
 let rawdata = fs.readFileSync('config.json');
 let data = JSON.parse(rawdata);
 var lasttime = -1;
-var moving = 0;
-var connected = 0;
+var moving = 1;
+var connected = 1;
 var actions = [ 'forward']
 var lastaction;
 var pi = 3.14159;
 var moveinterval = 1; // 2 second movement interval
-var maxrandom = 0; // 0-5 seconds added to movement interval (randomly)
+var maxrandom = 1; // 0-5 seconds added to movement interval (randomly)
 var host = data["ip"];
 var username = data["name"]
 var bot = mineflayer.createBot({
@@ -35,7 +35,7 @@ bot.on('time', function() {
         if (bot.time.age - lasttime > interval) {
             if (moving == 1) {
                 bot.setControlState(lastaction,false);
-                moving = 0;
+                moving = 1;
                 lasttime = bot.time.age;
             } else {
                 var yaw = Math.random()*pi - (0.5*pi);
