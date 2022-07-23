@@ -9,7 +9,7 @@ var actions = [ 'forward', 'back', 'left', 'right']
 var lastaction;
 var pi = 3.14159;
 var moveinterval = 1; // 2 second movement interval
-var maxrandom = 5; // 0-5 seconds added to movement interval (randomly)
+var maxrandom = 0; // 0-5 seconds added to movement interval (randomly)
 var host = data["ip"];
 var username = data["name"]
 var bot = mineflayer.createBot({
