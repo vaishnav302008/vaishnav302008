@@ -33,9 +33,9 @@ bot.on('time', function() {
         var randomadd = Math.random() * maxrandom * 1;
         var interval = moveinterval*1 + randomadd;
         if (bot.time.age - lasttime > interval) {
-            if (moving == 1) {
+            if (moving == 10) {
                 bot.setControlState(lastaction,false);
-                moving = 1;
+                moving = 10;
                 lasttime = bot.time.age;
             } else {
                 var yaw = Math.random()*pi - (0.5*pi);
@@ -43,7 +43,7 @@ bot.on('time', function() {
                 bot.look(yaw,pitch,false);
                 lastaction = actions[Math.floor(Math.random() * actions.length)];
                 bot.setControlState(lastaction,true);
-                moving = 1;
+                moving = 10;
                 lasttime = bot.time.age;
                 bot.activateItem();
             }
