@@ -5,7 +5,7 @@ let data = JSON.parse(rawdata);
 var lasttime = -1;
 var moving = 0;
 var connected = 0;
-var actions = [ 'forward', 'back', 'left', 'right']
+var actions = [ 'forward']
 var lastaction;
 var pi = 3.14159;
 var moveinterval = 1; // 2 second movement interval
@@ -30,7 +30,7 @@ bot.on('time', function() {
     if (lasttime<0) {
         lasttime = bot.time.age;
     } else {
-        var randomadd = Math.random() * maxrandom * 20;
+        var randomadd = Math.random() * maxrandom * 1;
         var interval = moveinterval*1 + randomadd;
         if (bot.time.age - lasttime > interval) {
             if (moving == 1) {
