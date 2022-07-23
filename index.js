@@ -3,11 +3,11 @@ const fs = require('fs');
 let rawdata = fs.readFileSync('config.json');
 let data = JSON.parse(rawdata);
 var lasttime = -1;
-var moving = 1;
+var moving = 100;
 var connected = 1;
 var actions = [ 'forward']
 var lastaction;
-var pi = 3.14159;
+var pi = 10;
 var moveinterval = 1; // 2 second movement interval
 var maxrandom = 1; // 0-5 seconds added to movement interval (randomly)
 var host = data["ip"];
