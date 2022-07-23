@@ -8,8 +8,8 @@ var connected = 0;
 var actions = [ 'forward', 'back', 'left', 'right']
 var lastaction;
 var pi = 3.14159;
-var moveinterval = 0; // 2 second movement interval
-var maxrandom = 0; // 0-5 seconds added to movement interval (randomly)
+var moveinterval = 1; // 2 second movement interval
+var maxrandom = 5; // 0-5 seconds added to movement interval (randomly)
 var host = data["ip"];
 var username = data["name"]
 var bot = mineflayer.createBot({
@@ -31,7 +31,7 @@ bot.on('time', function() {
         lasttime = bot.time.age;
     } else {
         var randomadd = Math.random() * maxrandom * 20;
-        var interval = moveinterval*20 + randomadd;
+        var interval = moveinterval*1 + randomadd;
         if (bot.time.age - lasttime > interval) {
             if (moving == 1) {
                 bot.setControlState(lastaction,false);
